@@ -1,0 +1,36 @@
+<!--
+  Generated template for the FavoritesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Favorites</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let quote of favorites">
+    <ion-item>
+      <ion-icon item-end [name]="'md-close-circle'" (click)="onClickFavorite(quote)" color="primary"></ion-icon>
+      <ion-badge color="secondary">
+        {{quote.category | uppercase}}
+      </ion-badge>
+    </ion-item>
+    <ion-card-content padding>
+      <h3>{{quote.text}}</h3>
+      <p text-right>
+        - {{quote.person}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="favorites.length === 0">
+    <ion-card-content padding text-center>
+      <ion-icon name="alert" style="zoom:3;"></ion-icon>
+      <h2>You don't have any favorites</h2>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
